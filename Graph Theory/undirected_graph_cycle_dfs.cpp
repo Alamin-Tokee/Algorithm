@@ -6,11 +6,12 @@ bool cycleUtill(int u,vector<bool>& vis,vector<int>adj[]){
 	if(vis[u]==2)
 		return true;
 
+	bool flag=false;
 	vis[u]=1;
 	for(int i=0;i<adj[u].size();i++){
 		if(vis[i]==1) vis[i]=2;
 
-		int flag=cycleUtill(adj[u][i],vis,adj);
+		flag=cycleUtill(adj[u][i],vis,adj);
 		if(flag) return true;
 	}
 	vis[i]=0;
@@ -21,10 +22,11 @@ bool cycleUtill(int u,vector<bool>& vis,vector<int>adj[]){
 bool isCycle(int V,vector<int>adj[]){
 	vector<int>vis(V,0);
 
+	bool flag=false;
 	for(int i=0;i<V;i++){
 		vis[i]=1;
 		for(int j=0;j<adj[i].size();i++){
-			int flag=cycleUtill(adj[i][j],vis,adj);
+			flag=cycleUtill(adj[i][j],vis,adj);
 			if(flag) return true;
 		}
 		vis[i]=0;

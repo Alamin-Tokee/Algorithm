@@ -5,9 +5,10 @@ bool cycleUtill(int u,vector<bool>& vis,vector<int>adj[]){
 	if(vis[u]==true)
 		return true;
 
+	bool flag=false;
 	vis[u]=true;
 	for(int i=0;i<adj[u].size();i++){
-		int flag=cycleUtill(adj[u][i],vis,adj);
+		flag=cycleUtill(adj[u][i],vis,adj);
 		if(flag) return true;
 	}
 	vis[i]=false;
@@ -18,10 +19,11 @@ bool cycleUtill(int u,vector<bool>& vis,vector<int>adj[]){
 bool isCycle(int V,vector<int>adj[]){
 	vector<bool>vis(V,false);
 
+	bool flag=false;
 	for(int i=0;i<V;i++){
 		vis[i]=true;
 		for(int j=0;j<adj[i].size();i++){
-			int flag=cycleUtill(adj[i][j],vis,adj);
+			flag=cycleUtill(adj[i][j],vis,adj);
 			if(flag) return true;
 		}
 		vis[i]=false;
@@ -37,6 +39,7 @@ int main(){
 		int u,v;
 		cin>>u>>v;
 		adj[u].push_back(v);
+		adj[v].push_back(u);
 	}
 
 	if(isCycle(V,adj)) cout << "Cycle found";
