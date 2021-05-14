@@ -1,32 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool cycleUtill(int u,vector<bool>& vis){
-	if(vis[i]==true)
+bool cycleUtill(int u,vector<bool>& vis,vector<int>adj[]){
+	if(vis[u]==true)
 		return true;
 
+	vis[u]=true;
 	for(int i=0;i<adj[u].size();i++){
-		int flag=cycleUtill(adj[u][i],vis);
+		int flag=cycleUtill(adj[u][i],vis,adj);
 		if(flag) return true;
 	}
 	vis[i]=false;
-
+	
 	return false;
 }
 
-bool isCycle(){
-	vector<int>vis(V,false);
+bool isCycle(int V,vector<int>adj[]){
+	vector<bool>vis(V,false);
 
 	for(int i=0;i<V;i++){
+		vis[i]=true;
 		for(int j=0;j<adj[i].size();i++){
-			int flag=cycleUtill(adj[i][j],vis);
+			int flag=cycleUtill(adj[i][j],vis,adj);
 			if(flag) return true;
 		}
+		vis[i]=false;
 	}
 	return false;
 }
 int main(){
-	int E,N;
-	cin>>E>>N;
-	for()
+    int V,E;
+	cin>>V>>E;
+	vector<int>adj[V];
+
+	for(int i=0;i<E;i++){
+		int u,v;
+		cin>>u>>v;
+		adj[u].push_back(v);
+	}
+
+	if(isCycle(V,adj)) cout << "Cycle found";
+	else cout<< "Cycle not found";
+
+	return 0;
 }
