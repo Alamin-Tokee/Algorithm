@@ -26,5 +26,7 @@ bool isCycle(){
 	return false;
 }
 int main(){
-
+int E,N;
+	cin>>E>>N;
+	for()
 }
