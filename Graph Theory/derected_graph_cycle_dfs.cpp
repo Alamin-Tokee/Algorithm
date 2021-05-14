@@ -10,7 +10,7 @@ bool cycleUtill(int u,vector<bool>& vis){
 		if(flag) return true;
 	}
 	vis[i]=false;
-	
+
 	return false;
 }
 
@@ -26,5 +26,7 @@ bool isCycle(){
 	return false;
 }
 int main(){
-
+	int E,N;
+	cin>>E>>N;
+	for()
 }
