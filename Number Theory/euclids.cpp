@@ -94,3 +94,18 @@ int main(){
 
 	cout<<g<<'\n';
 }
+
+
+//Another aproach 
+int euclid(int a, int b)
+{
+    int r;
+    while (b > 0)
+    {
+        r = a % b;
+        a = b;
+        b = r;
+    }
+ 
+    return a;
+}
