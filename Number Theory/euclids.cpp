@@ -81,3 +81,16 @@ int main(){
 
 	return 0;
 }
+
+//Another approach 
+
+int main(){
+	int a,b,g;
+	cin>>a,b;
+	for(int i=0;i<=a && i<=b;i++){
+		if(a%i==0 && b%i==0)
+			g=i;
+	}
+
+	cout<<g<<'\n';
+}
