@@ -58,3 +58,26 @@ int gcd(int a, int b)
     // converts odd-even case after one recursion
     return (a > b)? gcd(a-b, b): gcd(a, b-a);
 }
+
+
+//Iterative Approach 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int a,b;
+	cin>>a>>b;
+
+	while(a!=b){
+		if(a>b){
+			a=a-b;
+		}
+		else{
+			b=b-a;
+		}
+	}
+	printf("%d\n",a);
+
+	return 0;
+}
