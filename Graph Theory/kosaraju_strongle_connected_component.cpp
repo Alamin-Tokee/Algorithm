@@ -4,6 +4,8 @@ using namespace std;
 #define pb push_back
 vector<vector<int>>adj,rev;
 unordered_map<int,vector<int>>adj,rev;
+// G[i].push_back(j);
+// G_reverse[j].push_back(i);
 int noSCC=0;
 
 void dfs1(int u,vector<bool>&vis,stack<int>&st){
